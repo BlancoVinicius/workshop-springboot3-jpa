@@ -32,7 +32,7 @@ public class OrderItem implements Serializable{
 		this.price = price;
 	}
 	
-	@JsonIgnore //Na plataform java Enterprise o que vale é o metpdo get, por isso poem o JsonIgnore aqui
+	@JsonIgnore
 	public Order getOrder() {
 		return this.id.getOrder();
 	}
@@ -63,6 +63,10 @@ public class OrderItem implements Serializable{
 
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	public Double getSubTotal() {
+		return this.price * this.quantity;
 	}
 
 	@Override

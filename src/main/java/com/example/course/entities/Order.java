@@ -89,13 +89,22 @@ public class Order implements Serializable {
 	public void setClient(User client) {
 		this.client = client;
 	}
-
+	
 	public Payment getPayment() {
 		return payment;
 	}
 
 	public void setPayment(Payment payment) {
 		this.payment = payment;
+	}
+	
+	public Double getTotal() {
+		double total = 0.0;
+		
+		for(OrderItem x: items) {
+			total += x.getSubTotal();
+		}
+		return total;
 	}
 	
 	public Set<OrderItem> getItems(){

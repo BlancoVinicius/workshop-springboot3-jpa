@@ -93,11 +93,6 @@ public class Product implements Serializable {
 		return categories;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
 	@JsonIgnore
 	public Set<Order> getOrders(){
 		Set<Order> set = new HashSet<>();
@@ -105,6 +100,11 @@ public class Product implements Serializable {
 		return set;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
